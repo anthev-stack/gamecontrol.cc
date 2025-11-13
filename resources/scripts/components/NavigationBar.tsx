@@ -6,12 +6,24 @@ import { faCogs, faLayerGroup, faSignOutAlt } from '@fortawesome/free-solid-svg-
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import SearchContainer from '@/components/dashboard/search/SearchContainer';
-import tw, { theme } from 'twin.macro';
+import tw from 'twin.macro';
 import styled from 'styled-components/macro';
 import http from '@/api/http';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import Tooltip from '@/components/elements/tooltip/Tooltip';
 import Avatar from '@/components/Avatar';
+
+const Navigation = styled.div`
+    ${tw`w-full shadow-md overflow-x-auto`};
+    background: linear-gradient(
+        135deg,
+        rgba(13, 27, 50, 0.92) 0%,
+        rgba(7, 15, 30, 0.95) 60%,
+        rgba(4, 9, 18, 0.98) 100%
+    );
+    border-bottom: 1px solid rgba(31, 111, 235, 0.22);
+    backdrop-filter: blur(14px);
+`;
 
 const RightNavigation = styled.div`
     & > a,
@@ -21,13 +33,14 @@ const RightNavigation = styled.div`
 
         &:active,
         &:hover {
-            ${tw`text-neutral-100 bg-black`};
+            ${tw`text-neutral-100`};
+            background: rgba(31, 111, 235, 0.18);
         }
 
         &:active,
         &:hover,
         &.active {
-            box-shadow: inset 0 -2px ${theme`colors.cyan.600`.toString()};
+            box-shadow: inset 0 -3px rgba(31, 111, 235, 0.75);
         }
     }
 `;
@@ -46,14 +59,14 @@ export default () => {
     };
 
     return (
-        <div className={'w-full bg-neutral-900 shadow-md overflow-x-auto'}>
+        <Navigation>
             <SpinnerOverlay visible={isLoggingOut} />
             <div className={'mx-auto w-full flex items-center h-[3.5rem] max-w-[1200px]'}>
                 <div id={'logo'} className={'flex-1'}>
                     <Link
                         to={'/'}
                         className={
-                            'text-2xl font-header px-4 no-underline text-neutral-200 hover:text-neutral-100 transition-colors duration-150'
+                            'text-2xl font-header px-4 no-underline text-[#dce6ff] hover:text-white transition-colors duration-150'
                         }
                     >
                         {name}
@@ -87,6 +100,6 @@ export default () => {
                     </Tooltip>
                 </RightNavigation>
             </div>
-        </div>
+        </Navigation>
     );
 };
