@@ -1,0 +1,18 @@
+[Unit]
+Description=Pterodactyl Wings Daemon
+After=docker.service
+Requires=docker.service
+
+[Service]
+User=root
+WorkingDirectory=/etc/pterodactyl
+LimitNOFILE=1048576
+LimitNPROC=1048576
+LimitCORE=infinity
+Restart=on-failure
+ExecStart=/usr/local/bin/wings
+StartLimitIntervalSec=180
+
+[Install]
+WantedBy=multi-user.target
+
