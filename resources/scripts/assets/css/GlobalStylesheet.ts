@@ -2,11 +2,22 @@ import tw from 'twin.macro';
 import { createGlobalStyle } from 'styled-components/macro';
 
 export default createGlobalStyle`
+    html,
     body {
         ${tw`font-sans`};
-        background: radial-gradient(circle at top, #0a1530 0%, #050910 60%, #02060d 100%) fixed;
+        min-height: 100%;
+        background-color: #050910 !important;
+        background-image: radial-gradient(circle at top, #0a1530 0%, #050910 60%, #02060d 100%) !important;
+        background-attachment: fixed;
+        background-size: cover;
         color: #dae4ff;
         letter-spacing: 0.015em;
+    }
+
+    body.bg-neutral-800,
+    body[class*='bg-neutral-'] {
+        background-color: #050910 !important;
+        background-image: radial-gradient(circle at top, #0a1530 0%, #050910 60%, #02060d 100%) !important;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -39,9 +50,9 @@ export default createGlobalStyle`
     }
 
     .bg-neutral-800 {
-        background: rgba(10, 24, 46, 0.72) !important;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(31, 111, 235, 0.12);
+        background: rgba(6, 16, 32, 0.72) !important;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(31, 111, 235, 0.18);
     }
 
     .bg-neutral-700 {

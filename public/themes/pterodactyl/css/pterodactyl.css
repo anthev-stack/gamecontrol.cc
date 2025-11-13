@@ -850,14 +850,14 @@ pre {
     --panel-text-muted: #96a4c3;
 }
 
-body,
-.content-wrapper {
+body {
     background: radial-gradient(circle at top, #0a1530 0%, var(--panel-bg) 60%, #02060d 100%) !important;
     color: var(--panel-text);
 }
 
 .content-wrapper {
-    background-color: transparent !important;
+    background: #0b1730 !important;
+    color: var(--panel-text);
 }
 
 .skin-blue .wrapper,
